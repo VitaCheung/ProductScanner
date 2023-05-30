@@ -7,7 +7,7 @@ export default function About() {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query);
-    // const filteredPosts = filterPosts(posts, searchQuery);
+    
     console.log(searchQuery);
     const [loading, setLoading] = useState(false);
     const [loading2, setLoading2] = useState(false);
@@ -46,8 +46,6 @@ export default function About() {
             setAsin(data.results[0].asin);
             setRating(data.results[0].reviews.avg_rating);
             setnumOfRating(data.results[0].reviews.num_ratings);
-
-            
 
         }
         if (searchQuery){
@@ -102,16 +100,6 @@ export default function About() {
         product = <div className="product">Sorry, this product is not in the database.</div>
     };
     
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        const formattedDate = date.toLocaleDateString('en-CA', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        });
-        return formattedDate;
-    };
-
     let source = <div></div>;
     if (reviews) {
         source = <div className="reviews"> 
@@ -132,6 +120,16 @@ export default function About() {
                 </div>;
     } else {
         source = <div className="noReview">There is no review yet.</div>
+    };
+
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        const formattedDate = date.toLocaleDateString('en-CA', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric',
+        });
+        return formattedDate;
     };
   
     return (
@@ -154,9 +152,7 @@ export default function About() {
                 {state2}
                 {source}                
             </div>
-            
-
-                      
+                               
         </main>
     );
 };
