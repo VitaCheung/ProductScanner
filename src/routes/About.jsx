@@ -2,6 +2,7 @@
 import Search from "../components/search";
 import LoadingState from "../components/LoadingState";
 import {useState, useEffect}  from "react";
+// import Reviews from "../components/Reviews";
 
 export default function About() {
     const { search } = window.location;
@@ -9,8 +10,8 @@ export default function About() {
     const [searchQuery, setSearchQuery] = useState(query);
     
     console.log(searchQuery);
-    const [loading, setLoading] = useState(false);
-    const [loading2, setLoading2] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [loading2, setLoading2] = useState(true);
     const [title, setTitle] = useState("");
     const [asin, setAsin] = useState("");
     const [image, setImage] = useState("");
@@ -22,6 +23,14 @@ export default function About() {
 
     console.log("hello, I'm product's view");
     // var searchQuery = '087300700052' '062600963208';
+    let state1 =<div></div>;
+    if (loading) {
+        state1 = <LoadingState />; 
+    }
+    let state2 =<div></div>;
+    if (loading2) {
+        state2 = <LoadingState />; 
+    }
     
     useEffect(()=> {
         const getSearch = async () => {
@@ -38,24 +47,22 @@ export default function About() {
             let response = await fetch(url, options);
             let data = await response.json();
             // console.log(data);
-            //Update state after fetched data
-            setLoading(false);
+            setAsin(data.results[0].asin);
             setTitle(data.results[0].title);
             setPrice(data.results[0].price.amount);
             setImage(data.results[0].images[0].image);
-            setAsin(data.results[0].asin);
             setRating(data.results[0].reviews.avg_rating);
             setnumOfRating(data.results[0].reviews.num_ratings);
+            //Update state after fetched data
+            setLoading(false);
 
         }
-        if (searchQuery){
-        setLoading(true);
-        setLoading2(true);    
-        getSearch(); }
+        // if (searchQuery){   
+        // getSearch(); }
 
         // var asin = "B07VF6VRMD";
         const getReview = async () => {
-
+            await getSearch();
             const url = 'https://parazun-amazon-data.p.rapidapi.com/product/reviews/?asin='+asin+'&region=CA&page=1&filter_by_keyword=highly%20recommended';
             const options = {
             method: 'GET',
@@ -67,28 +74,21 @@ export default function About() {
             let response = await fetch(url, options);
             let data = await response.json();
             console.log(data);
+            setReviews(data.reviews);
             //Update state after fetched data
             setLoading2(false);
-            setReviews(data.reviews);
              
         }
-        // setLoading2(true);
-        getReview();
-          
-        
+        if (searchQuery){   
+            getSearch(); 
+            setLoading2(true);
+            getReview();}  
+
     },[]);
 
-    let state1 =<div></div>;
-    if (loading) {
-        state1 = <LoadingState />; 
-    }
-    let state2 =<div></div>;
-    if (loading2) {
-        state2 = <LoadingState />; 
-    }
-    
+
     let product = <div></div>;
-    if (title) {
+    if (searchQuery && title) {
         product = <div className="product"> 
                     <div className="padding"><img src={image}/></div>
                     <h3>{title}</h3>
@@ -96,32 +96,14 @@ export default function About() {
                     <p>Online Price: ${price}</p>
                     <p>ASIN: {asin}</p>   
                   </div>;
-    } else {
+    } else if(searchQuery){
+        product = <div>{state1}</div>;              
+    } else if(searchQuery && !title){
         product = <div className="product">Sorry, this product is not in the database.</div>
+    } else {
+        product = <div></div>;
     };
     
-    let source = <div></div>;
-    if (reviews) {
-        source = <div className="reviews"> 
-                    {reviews.map((review) => (
-                    <div className="review" key={review.review_date}>
-                        <div className="profile">
-                            <img src={review.profile_image} />
-                            <p>{review.profile_name}</p> <p class="date">{formatDate(review.review_date)}</p>
-                        </div>
-                        <div className="content">
-                            <p>{review.review_text}</p>
-                            <img src={review.images} />
-                            
-                        </div>
-                              
-                    </div>
-                    ))} 
-                </div>;
-    } else {
-        source = <div className="noReview">There is no review yet.</div>
-    };
-
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const formattedDate = date.toLocaleDateString('en-CA', {
@@ -131,6 +113,32 @@ export default function About() {
         });
         return formattedDate;
     };
+
+    let source = <div></div>;
+    if (searchQuery && reviews) {
+        source = <div className="reviews"> 
+                    {reviews.map((review) => (
+                    <div className="review" key={review.review_date}>
+                        <div className="profile">
+                            <img src={review.profile_image} />
+                            <p>{review.profile_name}</p> <p className="date">{formatDate(review.review_date)}</p>
+                        </div>
+                        <div className="content">
+                            <p>{review.review_text}</p>
+                            <img src={review.images} />
+                            
+                        </div>                             
+                    </div>
+                    ))} 
+                </div>;
+    } else if(searchQuery){
+        source = <div>{state2}</div>;
+    } else if(searchQuery && !reviews){
+        source = <div className="noReview">There is no review yet.</div>;
+    } else {
+        source = <div></div>;
+    };
+
   
     return (
         <main id="main">
@@ -142,17 +150,17 @@ export default function About() {
                     setSearchQuery={setSearchQuery}
                 />
             </div>
-             <div className="ProductPage">
-                <h2>Product</h2>
-                {state1}
+            <div className="ProductPage">
+                <h2>Product</h2>                      
                 {product}
-             </div>
-             <div className="ReviewsPage">   
-                <h2>Reviews</h2>
-                {state2}
+            </div>
+            <div className="ReviewsPage">   
+                <h2>Reviews</h2>               
                 {source}                
             </div>
-                               
+            
+
+                       
         </main>
     );
 };
