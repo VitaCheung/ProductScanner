@@ -1,7 +1,6 @@
 {
     "rewrites": [
-      { "source": "/about", "destination": "/About.jsx" },
-      { "source": "/(.*)", "destination": "/" }
+      { "source": "/(.*)", "destination": "/404.js" }
     ]
   }
   
