@@ -15,7 +15,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "babel-plugin-macros": "^3.1.0",
-    "date-fns": "^2.30.0",
     "dotenv": "^16.0.3",
     "quagga": "^0.12.1",
     "react": "^18.2.0",
