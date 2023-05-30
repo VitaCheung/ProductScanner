@@ -57,8 +57,8 @@ export default function About() {
             setLoading(false);
 
         }
-        // if (searchQuery){   
-        // getSearch(); }
+        if (searchQuery){   
+        getSearch(); }
 
         // var asin = "B07VF6VRMD";
         const getReview = async () => {
@@ -79,8 +79,7 @@ export default function About() {
             setLoading2(false);
              
         }
-        if (searchQuery){   
-            getSearch(); 
+        if (asin){   
             setLoading2(true);
             getReview();}  
 

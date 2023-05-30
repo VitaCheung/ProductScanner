@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+      { "source": "/about?s", "destination": "/src/routes/About.jsx" },
+      { "source": "/(.*)", "destination": "/" }
+    ]
+  }
+  
