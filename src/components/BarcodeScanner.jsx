@@ -21,14 +21,14 @@ const BarcodeScanner = ({ onBarcodeDetected }) => {
 
     };
 
-    const handleBarcodeSubmit = () => {
+    // const handleBarcodeSubmit = () => {
 
-        const formData = new FormData();
-        formData.append('barcode', detectedBarcode);
+    //     const formData = new FormData();
+    //     formData.append('barcode', detectedBarcode);
 
-        Search(formData);
+    //     Search(formData);
 
-    };
+    // };
 
     
 

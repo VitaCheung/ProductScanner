@@ -1,4 +1,4 @@
-import BarcodeSearch from "../components/BarcodeSearch";
+// import BarcodeSearch from "../components/BarcodeSearch";
 import Search from "../components/search";
 import LoadingState from "../components/LoadingState";
 import {useState, useEffect}  from "react";
@@ -20,10 +20,8 @@ export default function About() {
     const [reviews, setReviews] = useState([]);
     // const [reviewsImg, setReviewsImg] = useState("",[]);
 
-       
     console.log("hello, I'm product's view");
     // var searchQuery = '087300700052' '062600963208';
-    // var key = {searchQuery};
     
     useEffect(()=> {
         const getSearch = async () => {
@@ -53,7 +51,8 @@ export default function About() {
 
         }
         if (searchQuery){
-        setLoading(true);    
+        setLoading(true);
+        setLoading2(true);    
         getSearch(); }
 
         // var asin = "B07VF6VRMD";
@@ -69,13 +68,13 @@ export default function About() {
             };
             let response = await fetch(url, options);
             let data = await response.json();
-            // console.log(data);
+            console.log(data);
             //Update state after fetched data
             setLoading2(false);
             setReviews(data.reviews);
              
         }
-        setLoading2(true);
+        // setLoading2(true);
         getReview();
           
         
@@ -83,12 +82,11 @@ export default function About() {
 
     let state1 =<div></div>;
     if (loading) {
-        state1 = <LoadingState />; // Render your loading logo component
+        state1 = <LoadingState />; 
     }
-
     let state2 =<div></div>;
     if (loading2) {
-        state2 = <LoadingState />; // Render your loading logo component
+        state2 = <LoadingState />; 
     }
     
     let product = <div></div>;
