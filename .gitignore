@@ -1,6 +1,6 @@
 # dependencies
-/node_modules
+
 
 # api keys
 .env
-node_modules
+.vercel
