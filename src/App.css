@@ -57,7 +57,7 @@ h2 {
   margin-right: 4em;
 } 
 #home{
-  background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.4)), url("../public/shelf.jpg") center center;
+  background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.4)), url("/shelf.jpg") center center;
   background-size: cover;
   height: auto;
   padding:9em 1em;
