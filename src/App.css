@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;1,700&family=Libre+Barcode+39&family=Quicksand:wght@400;600&display=swap');
+html {
+  max-width: 100%;
+  box-sizing:border-box; 
+  font-family: 'Jost', 'Quicksand', sans-serif;
+  font: normal 400 1em 16px ;
+  line-height: 26px;
+}
+body{
+  /* min-height: 1000px; */
+  margin: 0;
+  padding: 0;
+}
+*, *::before, *::after {
+  box-sizing:inherit; 
+}
+::selection {
+  background:pink;
+}
+h2 {
+  text-align: center;
+}
+#header{
+  margin: 0;
+  width: 100%;
+  display:grid;
+  text-align: center;
+  background-color: brown;
+}
+#main-nav{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #242424;
+  text-align: center;
+  /* background-color: rgb(46, 46, 46); */
+  padding: 0.5em 1em;
+}
+#main-nav a, #header a{
+  color: white;
+  text-decoration:none;
+}
+#main-nav a:hover{
+  color:gold;
+}
+#main-nav ul{
+  width:100%;
+  place-content: center;
+  display: flex;
+  list-style-type: none;
+  margin:0;
+}
+#main-nav li{
+  display: flex;
+  flex-direction: column;
+  margin-right: 4em;
+} 
+#home{
+  background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.4)), url("../public/shelf.jpg") center center;
+  background-size: cover;
+  height: auto;
+  padding:9em 1em;
+}
+#home-nav ul{
+  list-style-type: none;
+}
+#home-nav li{
+  text-align: center;
+  margin: 1em;
+  padding: 1em;
+  background-color: brown;
+  border-radius: 20px;
+}
+#home-nav li:hover{
+  background-color:rgb(214, 52, 52);
+}
+#home-nav a{
+  font-size: 1.5em;
+  color:white;
+  text-decoration:none;
+}
+#main{
+  display:grid;
+  width: 100%;
+  min-height: 700px;
+  /* padding:2em; */
+  /* text-align: center; */
+  
+}
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+#scannerPage{
+  text-align: center;
+  min-height: 700px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 3em 2em;
+}
+#barcode-scanner{
+  max-width:100%;
+  text-align: center;
+  position: relative;
+  /* width: 300px; */
+  margin:4em 15em;
+  height: 200px;
+  border: 3px solid #000;
+  overflow: hidden;
+}
+.sweeping-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: red;
+  animation: sweeping 2s infinite linear;
+}
+#searchbar input{
+  font-family: 'Jost', 'Quicksand', sans-serif;
+  width:250px;
+  font-size: 2em;
+  border-radius: 10px;
+}
+#searchbar button{
+  font-family: 'Jost', 'Quicksand', sans-serif;
+  font-size: 2em;
+  background-color: brown;
+  color:white;
+  border-radius: 10px;
+}
+#Search {
+  text-align: center;
+}
+.ProductPage{
+  /* min-height:700px; */
+  text-align: center;
+  width: 100%;
+  background-color: rgba(211, 211, 211, 0.5);
+  color: black;
+  padding: 2em 1em;
+}
+.ProductPage h2{
+  color:brown;
+}
+.ProductPage h3{
+  padding: 0 8em;
+}
+.ProductPage img{
+  height: 200px;
+  padding: 1em;
+}
+.padding{
+  margin:0 8em;
+  background-color: white;
+  border-radius: 20px;
+  padding: 1em;
+}
+.ReviewsPage{
+  width: 100%;
+  background-color: brown;
+  color: white;
+  padding: 2em 1em;
+}
+.review{
+  margin: 1em 8em;
+  padding:0.5em 2em;
+  color:black;
+  background-color: rgb(241, 241, 241);
+  border-radius: 15px;
+}
+.noReview{
+  text-align: center;
+}
+.profile{
+  display: flex;
+  align-items: center;
+}
+.date{
+  color:grey;
+}
+.profile p {
+  margin: 7px;
+}
+.profile img{
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+.content{
+  margin:0;
+}
+#copyright{
+  background-color: rgba(0, 0, 0, 0.8);
+  color:rgb(255, 255, 255);
+  text-align: center;
+  margin:0;
+  padding: 1em;
+}
+#searchbox{
+  display: none;
+}
+#loading{
+  /* height: 20px; */
+  text-align: center;
+  padding: 3em;
+}
+
+
+
+@keyframes sweeping {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(200px);
+  }
+}
+
+@media screen and (max-width:480px) {
+  body {
+      max-width: 100%;
+      /* height: auto 100%; */
+      /* place-items:center;  */
+  }
+  #main{
+    min-height: 400px;
+  }
+  #barcode-scanner{
+    text-align: center;
+    position: relative;
+    margin:4em 2em;
+    height: 120px;
+    border: 3px solid #000;
+    overflow: hidden;
+  }
+  .ProductPage h3{
+    padding: 0 1em;
+  }
+  .ProductPage img{
+    height: 200px;
+    /* padding: 1em 1em; */
+  }
+  .padding{
+    margin:0 3em;
+    padding: 1em;
+  }
+  .review{
+    margin: 1em 1em;
+  }
+  .content, .content p{
+    margin-bottom:0;
+  }
+  /* #scannerPage, .ProductPage, .ReviewsPage{
+    min-height: 100%;
+  } */
+
+  
+      
+  }
