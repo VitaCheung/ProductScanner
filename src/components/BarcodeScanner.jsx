@@ -68,7 +68,7 @@ const BarcodeScanner = ({ onBarcodeDetected }) => {
     
     
     return (
-        <main id="main">
+        <main id="Scan-main">
         {/* Add the 'barcode-scanner' */}
         <div id="barcode-scanner">
             <div className="sweeping-line"></div>

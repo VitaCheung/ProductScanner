@@ -21,7 +21,7 @@ export default function Scanner() {
 
   return (
     <main id="scannerPage">
-      <h2>Scan the barcode:</h2>
+      <h1>Scan the barcode:</h1>
       <BarcodeScanner onBarcodeDetected={handleBarcodeDetected} />
       <FormComponent   detectedBarcode={detectedBarcode} />
       {/* Other components */}

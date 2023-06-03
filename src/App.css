@@ -7,7 +7,6 @@ html {
   line-height: 26px;
 }
 body{
-  /* min-height: 1000px; */
   margin: 0;
   padding: 0;
 }
@@ -57,13 +56,14 @@ h2 {
   margin-right: 4em;
 } 
 #home{
+  margin: 0;
   background: linear-gradient(rgb(255, 255, 255), rgba(0, 0, 0, 0.4)), url("/shelf.jpg") center center;
   background-size: cover;
-  height: auto;
-  padding:9em 1em;
+  min-height:max-content;
+  padding:10em 3em;
 }
 #home-nav ul{
-  padding: 1em 2em;
+  padding: 1em 5em;
   margin: 0;
   list-style-type: none;
 }
@@ -82,14 +82,6 @@ h2 {
   color:white;
   text-decoration:none;
 }
-#main{
-  display:grid;
-  width: 100%;
-  min-height: 700px;
-  /* padding:2em; */
-  /* text-align: center; */
-  
-}
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -101,7 +93,7 @@ h2 {
 }
 #scannerPage{
   text-align: center;
-  min-height: 700px;
+  min-height: 650px;
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 3em 2em;
@@ -125,24 +117,30 @@ h2 {
   background-color: rgb(244, 65, 113);
   animation: sweeping 2s infinite linear;
 }
-#searchbar input{
+#search input, #searchbar input{
   font-family: 'Jost', 'Quicksand', sans-serif;
   width:250px;
-  font-size: 2em;
-  border-radius: 10px;
+  font-size: 1.5em;
+  border-radius: 5px;
 }
-#searchbar button{
+#search button, #searchbar button{
   font-family: 'Jost', 'Quicksand', sans-serif;
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: rgb(244, 65, 113);
   color:white;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 #Search {
   text-align: center;
 }
+h1{
+  padding: 1em 0em;
+}
+#main{
+  margin:0;
+  /* height: max-content; */
+}
 .ProductPage{
-  /* min-height:700px; */
   text-align: center;
   width: 100%;
   background-color: rgba(211, 211, 211, 0.5);
@@ -206,15 +204,23 @@ h2 {
   margin:0;
   padding: 1em;
 }
-#searchbox{
+#searchbox button{
   display: none;
 }
 #loading {
+  min-height: 600px;
   text-align: center;
   place-self: center;
 }
 .ReviewsPage img{
   text-align: center;
+}
+#errorMsg{
+  padding:3em 2em;
+}
+#main, #home, #scannerPage{
+  max-width: 100%;
+  min-height: 900px;
 }
 
 
@@ -228,22 +234,33 @@ h2 {
   }
 }
 
+@media screen and (max-width:768px) {
+  #main, #home, #scannerPage{
+    max-width: 100%;
+    min-height: 900px;
+  }
+  #barcode-scanner{
+    margin:4em 8em;
+    height: 200px;
+  }
+
+}
+
 @media screen and (max-width:480px) {
   body {
       max-width: 100%;
-      /* height: auto 100%; */
-      /* place-items:center;  */
+      height: auto 100%;
   }
   #main{
-    min-height: 400px;
+    height: auto;
+  }
+  #home-nav ul{
+    padding: 1em 1.5em;
   }
   #barcode-scanner{
-    text-align: center;
-    position: relative;
     margin:4em 2em;
     height: 120px;
     border: 3px solid #000;
-    overflow: hidden;
   }
   .ProductPage h3{
     padding: 0 1em;
@@ -262,10 +279,6 @@ h2 {
   .content, .content p{
     margin-bottom:0;
   }
-  /* #scannerPage, .ProductPage, .ReviewsPage{
-    min-height: 100%;
-  } */
-
   
       
   }
