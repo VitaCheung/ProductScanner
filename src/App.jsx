@@ -12,7 +12,8 @@ import Header from "./components/Header";
 import Home from "./routes/Home";
 import Scanner from "./routes/Scanner";
 import About from "./routes/About";
-import Nav from "./components/Nav"
+import Login from "./routes/Login";
+import Nav from "./components/Nav";
 
 
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/scanner" element={<Scanner />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
         <Nav />
         <p id="copyright">Copyright&copy; 2023 Vita Cheung</p>

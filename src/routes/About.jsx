@@ -43,8 +43,8 @@ export default function About() {
             // Perform API request to fetch data
             let response = await fetch(url, options);
             if (!response.ok) {
-                throw Error();
-                // throw new Error('This barcode or product is not in the database.');
+                // throw Error();
+                throw new Error('This barcode or product is not in the database.');
             }
             let data = await response.json();
             // console.log(data);
@@ -82,7 +82,6 @@ export default function About() {
             setLoading(false);
         }
             
-            
         };
         if (searchQuery){ 
         getSearch();
@@ -114,7 +113,7 @@ export default function About() {
                                     )}</p>
                     <p>ASIN: {asin}</p>   
                   </div>;           
-    } else if(searchQuery && !title){
+    } else if(title && !asin){
         product = <div className="product">There is not much detail of the product.</div>
     } else {
         product = <div></div>;

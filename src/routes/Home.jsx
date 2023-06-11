@@ -21,6 +21,9 @@ export default function Home() {
             <li>
               <NavLink to="/about">Product Search</NavLink>
             </li>
+            <li>
+              <NavLink to="/login">Login</NavLink>
+            </li>
           </ul>
         </nav>
         
