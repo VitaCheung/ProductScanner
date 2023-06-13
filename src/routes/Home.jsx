@@ -2,10 +2,21 @@
 // import ShowReviews from "../components/ShowReviews";
 import {NavLink} from "react-router-dom";
 import Logout from "../components/Logout";
+import React, { useEffect, useState } from 'react';
 
 
 
 export default function Home() {
+  const [logout, setlogout] = useState(false);
+
+  function out(){
+        setlogout(true);
+  }
+  let logging = <div></div>;
+  if (logout) {
+      logging = <Logout />;
+  }
+
   return(
     <main id="main">
       {/* <h1>Homepage</h1> */}
@@ -15,7 +26,7 @@ export default function Home() {
         <nav id="home-nav" aria-label="Main navigation">
           <ul>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/home">Home</NavLink>
             </li>
             <li>
               <NavLink to="/scanner">Barcode Scan</NavLink>
@@ -26,7 +37,9 @@ export default function Home() {
             <li>
               <NavLink to="/login">Login</NavLink>
             </li>
-            <li><Logout /></li>
+            <button type="submit" onClick={out}>Logout</button>
+            {logging}
+            
           </ul>
         </nav>
         

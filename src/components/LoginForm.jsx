@@ -39,7 +39,7 @@ const LoginForm = () => {
         console.error('Error:', error);
       });
 
-    //   window.location="/";
+      window.location="/home";
 
   };
 //   console.log(2+ token);

@@ -1,5 +1,6 @@
 // import React, { useState } from 'react';
 import {useState, useEffect}  from "react";
+import Home from "../routes/Home";
 
 const Logout = () => {
   // const [email, setEmail] = useState('');
@@ -7,7 +8,7 @@ const Logout = () => {
   // const [token, setToken] = useState("");
   const [logged, setLogged] = useState(true);
 
-  const handleSubmit = () => {
+  
     // event.preventDefault();
 
     // Make the HTTP request to Laravel API's login endpoint
@@ -30,15 +31,15 @@ const Logout = () => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
-
+      alert("Successfully logged out.");
     //   window.location="/";
 
-  };
+  
   localStorage.removeItem('Token');
 
   return (
-      
-      <button type="submit" onSubmit={handleSubmit}>Logout</button>
+
+    <div></div>
     
   );
 };

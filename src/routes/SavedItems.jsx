@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {NavLink} from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SavedItems = () => {
   const [logged, setLogged] = useState(true);
@@ -37,17 +38,18 @@ const SavedItems = () => {
   if(savedItems){
     items = <div>
               {savedItems.map((item) => (
-                <div key={item.id} className='box'>
-                  <img src={item.img} height="80" />
-
-                  <div className='details'>
-                  <h3>{item.name}</h3>
-                  <p>Brand: {item.brand}</p>
-                  <p>Barcode: {item.UPC}</p>
+                <div key={item.id} className='items'>
+                  <div className='left'>
+                    <img src={item.img} height="80" />
+                      <div className='details'>
+                        <h3>{item.name}</h3>
+                        <p>Brand: {item.brand}</p>
+                        <p>Barcode: {item.UPC}</p>
+                      </div>
                   </div>
                   
                   <div className='buttons'>
-
+                    <FontAwesomeIcon icon="fa-solid fa-trash-can" size="xl" />
                   </div>
 
                 </div>

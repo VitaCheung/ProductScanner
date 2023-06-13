@@ -169,7 +169,7 @@ h1{
   color: white;
   padding: 2em 1em;
 }
-.review{
+.review, .items{
   margin: 1em 8em;
   padding:0.5em 2em;
   color:black;
@@ -222,6 +222,25 @@ h1{
   max-width: 100%;
   min-height: 900px;
 }
+.items{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.left{
+  display:flex;
+}
+.details{
+  padding: 0 1em;
+}
+.details p{
+  margin: 0;
+}
+.buttons svg{
+  padding: 1em;
+  margin: 0;
+}
+
 
 
 
@@ -273,12 +292,20 @@ h1{
     margin:0 3em;
     padding: 1em;
   }
-  .review{
+  .review, .items{
     margin: 1em 1em;
+    padding: 0.5em 1em;
   }
   .content, .content p{
     margin-bottom:0;
   }
+  .details{
+    padding: 0 .5em;
+  }
+  .buttons svg{
+    padding: .5em;
+  }
+  
   
       
   }

@@ -10,8 +10,8 @@ export default function Nav() {
     <nav id="main-nav" aria-label="Main navigation">
       <ul>
         <li>
-          <NavLink to="/"><FontAwesomeIcon icon="fa-solid fa-house" size="xl" /></NavLink>          
-          <NavLink to="/"> Home</NavLink>
+          <NavLink to="/home"><FontAwesomeIcon icon="fa-solid fa-house" size="xl" /></NavLink>          
+          <NavLink to="/home"> Home</NavLink>
         </li>
         <li>
         <NavLink to="/scanner"><FontAwesomeIcon icon="fa-solid fa-barcode" size="xl" /></NavLink>
