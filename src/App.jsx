@@ -13,7 +13,9 @@ import Home from "./routes/Home";
 import Scanner from "./routes/Scanner";
 import About from "./routes/About";
 import Login from "./routes/Login";
+import SavedItems from "./routes/SavedItems";
 import Nav from "./components/Nav";
+
 
 
 
@@ -27,6 +29,7 @@ function App() {
           <Route path="/scanner" element={<Scanner />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/saveditems" element={<SavedItems />} />
         </Routes>
         <Nav />
         <p id="copyright">Copyright&copy; 2023 Vita Cheung</p>

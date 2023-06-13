@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
+import {useState, useEffect}  from "react";
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
@@ -32,14 +33,17 @@ const LoginForm = () => {
         console.log(data.access_token);
         setLogged(true);
         console.log(data);
-        console.log(1+ token);
       })
       .catch((error) => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
+
     //   window.location="/";
+
   };
+//   console.log(2+ token);
+  localStorage.setItem('Token', token);
 
   return (
     <form action="/home" onSubmit={handleSubmit} >

@@ -1,6 +1,8 @@
 // import Question from "../components/Question";
 // import ShowReviews from "../components/ShowReviews";
 import {NavLink} from "react-router-dom";
+import Logout from "../components/Logout";
+
 
 
 export default function Home() {
@@ -24,6 +26,7 @@ export default function Home() {
             <li>
               <NavLink to="/login">Login</NavLink>
             </li>
+            <li><Logout /></li>
           </ul>
         </nav>
         
