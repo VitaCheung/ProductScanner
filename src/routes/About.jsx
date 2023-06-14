@@ -2,7 +2,9 @@
 import React from 'react';
 import Search from "../components/search";
 import LoadingState from "../components/LoadingState";
+import AddItemForm from "../components/AddItemForm";
 import {useState, useEffect}  from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import Reviews from "../components/Reviews";
 
 export default function About() {
@@ -104,8 +106,12 @@ export default function About() {
     if (searchQuery && title) {
         product = <div className="product"> 
                     <div className="padding"><img src={image}/></div>
-                    <h3>{title}</h3>
-                    <p>Rating: {rating} /5 ({numOfRating})</p>
+                    <div className='box'>
+                        <h3>{title}</h3> 
+                        
+                        <AddItemForm UPC={searchQuery} name={title} img={image} asin={asin}/>
+                    </div>
+                    <p>Rating: <span className='red'>{rating}</span> /5 ({numOfRating})</p>
                     <p>Online Price: {amount !== null ? (
                                         <span>$ {amount}</span>
                                     ) : (

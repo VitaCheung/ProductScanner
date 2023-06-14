@@ -5,6 +5,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState("");
+  const [userId, setUserId] = useState("");
   const [logged, setLogged] = useState(false);
 
   const handleEmailChange = (event) => {
@@ -30,6 +31,7 @@ const LoginForm = () => {
       .then((data) => {
         // Handle the API response (e.g., store the token, update state, etc.)
         setToken(data.access_token);
+        setUserId(data.user.id);
         console.log(data.access_token);
         setLogged(true);
         console.log(data);
@@ -44,6 +46,7 @@ const LoginForm = () => {
   };
 //   console.log(2+ token);
   localStorage.setItem('Token', token);
+  localStorage.setItem('UserId', userId);
 
   return (
     <form action="/home" onSubmit={handleSubmit} >

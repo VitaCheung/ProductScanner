@@ -1,21 +1,33 @@
-// import Question from "../components/Question";
-// import ShowReviews from "../components/ShowReviews";
 import {NavLink} from "react-router-dom";
 import Logout from "../components/Logout";
 import React, { useEffect, useState } from 'react';
 
 
-
 export default function Home() {
+  const authToken = localStorage.getItem('Token'); 
+  // const [logged, setLogged] = useState(true);
+  const [logged, setLogged] = useState(authToken ? true : false); 
   const [logout, setlogout] = useState(false);
+  
+  // if(!authToken){
+  //   setLogged(false);
+  // };
 
   function out(){
-        setlogout(true);
-  }
+      setlogout(true);
+  };
   let logging = <div></div>;
   if (logout) {
-      logging = <Logout />;
-  }
+    logging = <Logout />;
+  };
+
+  let logbtn = <div></div>;
+  if(logged){
+    logbtn = <button type="submit" onClick={out} id="logout_btn"><li>Logout</li></button>;
+  } else{
+    logbtn = <NavLink to="/login"><li>Login</li></NavLink>;
+  };
+
 
   return(
     <main id="main">
@@ -25,19 +37,15 @@ export default function Home() {
         
         <nav id="home-nav" aria-label="Main navigation">
           <ul>
-            <li>
-              <NavLink to="/home">Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/scanner">Barcode Scan</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">Product Search</NavLink>
-            </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <button type="submit" onClick={out}>Logout</button>
+            
+            <NavLink to="/home"><li>Home</li></NavLink>
+            
+            <NavLink to="/scanner"><li>Barcode Scan</li></NavLink>
+            
+            <NavLink to="/about"><li>Product Search</li></NavLink>
+            
+            
+            {logbtn}
             {logging}
             
           </ul>

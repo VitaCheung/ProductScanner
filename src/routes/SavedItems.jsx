@@ -22,6 +22,7 @@ const SavedItems = () => {
       .then((response) => response.json())
       .then((data) => {
       setSavedItems(data)
+      console.log(data);
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -44,7 +45,7 @@ const SavedItems = () => {
                       <div className='details'>
                         <h3>{item.name}</h3>
                         <p>Brand: {item.brand}</p>
-                        <p>Barcode: {item.UPC}</p>
+                        <p>Ref: {item.UPC}</p>
                       </div>
                   </div>
                   
@@ -55,19 +56,20 @@ const SavedItems = () => {
                 </div>
               ))}
             </div>;
-  } else {
-    items = <div>There is no item saved.</div>;
+  } 
+  if(savedItems==''){
+    items = <p className='noitem'>There is no item saved.</p>;
   }
 
   
   return (
-    <div>
-      <h2>Saved items</h2>
+    <main id="SavedItemsPage">
+      <h1>Saved items</h1>
       {login}
       {/* Render the saved items on the interface */}
       {items}
       
-    </div>
+    </main>
   );
 };
 

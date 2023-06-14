@@ -5,8 +5,6 @@ import {useState, useEffect}  from "react";
 // import { Form } from 'react-router-dom';
 // import { getSearch, getReview } from "../routes/About"
 
-
-
 const BarcodeScanner = ({ onBarcodeDetected }) => {
     const [detectedBarcode, setDetectedBarcode] = useState('');
     
@@ -29,10 +27,6 @@ const BarcodeScanner = ({ onBarcodeDetected }) => {
     //     Search(formData);
 
     // };
-
-    
-
-    
     
     useEffect(() => {
         Quagga.init({

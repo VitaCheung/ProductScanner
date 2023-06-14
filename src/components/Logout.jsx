@@ -22,7 +22,7 @@ const Logout = () => {
       .then((response) => response.json())
       .then((data) => {
         // Handle the API response (e.g., store the token, update state, etc.)
-        // setToken(data.access_token);
+        
         // console.log(data.access_token);
         setLogged(false);
         console.log(data);
@@ -31,12 +31,13 @@ const Logout = () => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
+      localStorage.removeItem('Token');
+      localStorage.removeItem('UserId');
       alert("Successfully logged out.");
-    //   window.location="/";
+      window.location="/";
 
   
-  localStorage.removeItem('Token');
-
+  
   return (
 
     <div></div>

@@ -49,11 +49,12 @@ h2 {
   display: flex;
   list-style-type: none;
   margin:0;
+  padding: 0;
 }
 #main-nav li{
   display: flex;
   flex-direction: column;
-  margin-right: 4em;
+  margin:0 1.5em;
 } 
 #home{
   margin: 0;
@@ -63,24 +64,36 @@ h2 {
   padding:10em 3em;
 }
 #home-nav ul{
+  text-align: center;
   padding: 1em 5em;
   margin: 0;
   list-style-type: none;
 }
-#home-nav li{
+#home-nav li, #logout_btn li{
+  width:100%;
   text-align: center;
   margin: 1em;
   padding: 1em;
   background-color: rgb(244, 65, 113);
   border-radius: 20px;
 }
-#home-nav li:hover{
+#home-nav li:hover, #logout_btn:hover{
   background-color:rgb(255, 105, 145);
 }
-#home-nav a{
+#home-nav a, #logout_btn{
   font-size: 1.5em;
   color:white;
   text-decoration:none;
+}
+#logout_btn{
+  margin:0;
+  padding:0;
+  /* border-radius: 20px; */
+  /* background-color: rgb(244, 65, 113); */
+  width:100%;
+  /* margin:1em 2em;
+  padding:1em; */
+  font-family: 'Jost', 'Quicksand', sans-serif;
 }
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -93,7 +106,7 @@ h2 {
 }
 #scannerPage{
   text-align: center;
-  min-height: 650px;
+  /* min-height: 650px; */
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 3em 2em;
@@ -153,6 +166,19 @@ h1{
 .ProductPage h3{
   padding: 0 8em;
 }
+.red{
+  color:rgb(244, 65, 113);
+  font-size: 1.2em;
+}
+.box{
+  justify-content: center;
+  display:flex;
+  align-items:center;
+}
+.box svg{
+  padding:0 .5em 0 0;
+  color:rgb(244, 65, 113) ;
+}
 .product img{
   height: 200px;
   padding: 1em;
@@ -196,6 +222,19 @@ h1{
 }
 .content{
   margin:0;
+}
+#SavedItemsPage{
+  background-color: rgba(0, 0, 0, 0.8);
+  min-height: 660px;
+}
+#SavedItemsPage h1{
+  text-align: center;
+  color:white;
+  margin:0;
+}
+.noitem{
+  color:white;
+  text-align: center;
 }
 #copyright{
   background-color: rgba(0, 0, 0, 0.8);
@@ -256,7 +295,7 @@ h1{
 @media screen and (max-width:768px) {
   #main, #home, #scannerPage{
     max-width: 100%;
-    min-height: 900px;
+    min-height: 800px;
   }
   #barcode-scanner{
     margin:4em 8em;
@@ -270,8 +309,11 @@ h1{
       max-width: 100%;
       height: auto 100%;
   }
-  #main{
-    height: auto;
+  #main, #home, #scannerPage{
+    min-height: 660px;
+  }
+  #home{
+    padding: 5em 2em;
   }
   #home-nav ul{
     padding: 1em 1.5em;

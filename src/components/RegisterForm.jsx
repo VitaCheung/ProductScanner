@@ -7,7 +7,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirm] = useState('');
   const [msg, setMsg] = useState('');
-  
+
 
   const handleFirstChange = (event) => {
     setFirst(event.target.value);
@@ -47,7 +47,7 @@ const RegisterForm = () => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
-      // window.location="/";
+      window.location="/login";
   };
 
   let message =<div></div>;
