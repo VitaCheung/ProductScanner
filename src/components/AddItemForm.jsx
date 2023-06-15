@@ -3,40 +3,22 @@ import {useState, useEffect}  from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {NavLink} from "react-router-dom";
 
-const AddItemForm = ({ UPC, name, asin, img }) => {
+const AddItemForm = ({ UPC, name, brand, img }) => {
   const authToken = localStorage.getItem('Token'); 
   const userId = localStorage.getItem('UserId');
   // const [UPC, setUPC] = useState('');
   // const [name, setName] = useState('');
   // const [img, setImg] = useState('');
-  const [brand, setBrand] = useState('');
+  // const [brand, setBrand] = useState(asin);
+  
   const [logged, setLogged] = useState(true);
   const [saved, setSaved] = useState(false);
   console.log('id:'+ userId);
   console.log('1UPC:'+ UPC);
   console.log('2name:'+ name);
-  console.log('3asin:'+ asin);
+  console.log('3asin:'+ brand);
   console.log('4img:'+ img);
   
-  
-  const getDetail = async () => {
-
-    const url = 'https://parazun-amazon-data.p.rapidapi.com/product/?asin='+asin+'&region=CA';
-    const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '993db5a0aamshe737b49dee5a1ddp18daf7jsnab8c338adc35',
-        'X-RapidAPI-Host': 'parazun-amazon-data.p.rapidapi.com'
-    }
-    };
-    let response = await fetch(url, options);
-    let data = await response.json();
-    // console.log(data);
-    setBrand(data.brand);
-
-  }
-  if (asin){
-  getDetail(); }
   console.log('brand:'+brand);
 
 
@@ -47,7 +29,7 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
       setLogged(false);
     } else {
       // Make the HTTP request to Laravel API's login endpoint
-    fetch('http://127.0.0.1:8000/api/add-item', {
+      fetch('http://127.0.0.1:8000/api/add-item', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -94,19 +76,27 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
    
     
     </div>
-    // <form action="/home" onSubmit={handleSubmit} >
-    //     <div className="email">
-    //         <label htmlFor="email">Email Address:</label>
-    //         <input type="text" value={email} onChange={handleEmailChange} placeholder="Email" />  
-    //     </div>
-    //     <div className="password">
-    //         <label htmlFor="password">Password:</label>
-    //         <input type="password" value={password} onChange={handlePasswordChange} placeholder="Password" />
-    //     </div>
-      
-    //   <button type="submit">Login</button>
-    // </form>
+    
   );
 };
 
 export default AddItemForm;
+
+// const getDetail = async () => {
+
+  //   const url = 'https://parazun-amazon-data.p.rapidapi.com/product/?asin='+asin+'&region=CA';
+  //   const options = {
+  //   method: 'GET',
+  //   headers: {
+  //       'X-RapidAPI-Key': '993db5a0aamshe737b49dee5a1ddp18daf7jsnab8c338adc35',
+  //       'X-RapidAPI-Host': 'parazun-amazon-data.p.rapidapi.com'
+  //   }
+  //   };
+  //   let response = await fetch(url, options);
+  //   let data = await response.json();
+  //   // console.log(data);
+  //   setBrand(data.brand);
+
+  // }
+  // if (asin){
+  // getDetail();};

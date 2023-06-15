@@ -72,13 +72,16 @@ h2 {
 #home-nav li, #logout_btn li{
   width:100%;
   text-align: center;
-  margin: 1em;
+  margin-bottom: 1em;
   padding: 1em;
   background-color: rgb(244, 65, 113);
   border-radius: 20px;
 }
-#home-nav li:hover, #logout_btn:hover{
-  background-color:rgb(255, 105, 145);
+#logout_btn li{
+  background-color: rgb(131, 93, 227);
+}
+#home-nav li:hover{
+  background-color:rgb(246, 89, 131);
 }
 #home-nav a, #logout_btn{
   font-size: 1.5em;
@@ -86,13 +89,12 @@ h2 {
   text-decoration:none;
 }
 #logout_btn{
+  background-color:rgba(255, 105, 145, 0);
+  border: none;
   margin:0;
   padding:0;
   /* border-radius: 20px; */
-  /* background-color: rgb(244, 65, 113); */
   width:100%;
-  /* margin:1em 2em;
-  padding:1em; */
   font-family: 'Jost', 'Quicksand', sans-serif;
 }
 .visually-hidden {
@@ -104,12 +106,29 @@ h2 {
   white-space: nowrap;
   width: 1px;
 }
-#scannerPage{
+#scannerPage, #login{
   text-align: center;
-  /* min-height: 650px; */
+  /* min-height: max-content; */
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 3em 2em;
+}
+#login{
+  margin:0 5em 0 5em;
+  padding: 5em 2em;
+}
+#login button{
+  font-family: 'Jost', 'Quicksand', sans-serif;
+  text-align: center;
+  width:50%;
+  padding:0.5em 1em;
+  margin-bottom: 1em;
+  background-color: rgb(244, 65, 113);
+  color:white;
+  border-radius: 10px;
+}
+.email input, .password input{
+  width:15em;
 }
 #barcode-scanner{
   max-width:100%;
@@ -151,6 +170,7 @@ h1{
 }
 #main{
   margin:0;
+  background: linear-gradient(rgb(255, 255, 255), rgba(218, 218, 218, 0.75)), url("/shelf.jpg") center center;
   /* height: max-content; */
 }
 .ProductPage{
@@ -166,9 +186,16 @@ h1{
 .ProductPage h3{
   padding: 0 8em;
 }
+.ProductPage button{
+  border: none;
+  background: none;
+}
 .red{
   color:rgb(244, 65, 113);
   font-size: 1.2em;
+}
+.red a{
+  color:rgb(244, 65, 113);
 }
 .box{
   justify-content: center;
@@ -176,7 +203,7 @@ h1{
   align-items:center;
 }
 .box svg{
-  padding:0 .5em 0 0;
+  padding-right: 5em;
   color:rgb(244, 65, 113) ;
 }
 .product img{
@@ -227,7 +254,7 @@ h1{
   background-color: rgba(0, 0, 0, 0.8);
   min-height: 660px;
 }
-#SavedItemsPage h1{
+#SavedItemsPage h1, #SavedItemsPage h2, #SavedItemsPage h2 a{
   text-align: center;
   color:white;
   margin:0;
@@ -235,6 +262,9 @@ h1{
 .noitem{
   color:white;
   text-align: center;
+}
+#delete_btn:hover{
+color:rgb(244, 65, 113);
 }
 #copyright{
   background-color: rgba(0, 0, 0, 0.8);
@@ -257,9 +287,10 @@ h1{
 #errorMsg{
   padding:3em 2em;
 }
-#main, #home, #scannerPage{
+#main, #home, #scannerPage, #SavedItemsPage{
   max-width: 100%;
   min-height: 900px;
+  padding-bottom: 1em;
 }
 .items{
   display:flex;
@@ -318,10 +349,23 @@ h1{
   #home-nav ul{
     padding: 1em 1.5em;
   }
+  #login{
+    margin:0 3em 0 3em;
+    padding: 5em 2.5em;
+  }
+  #login button{
+    width:70%;
+  }
+  .email input, .password input{
+    width:12em;
+  }
   #barcode-scanner{
     margin:4em 2em;
     height: 120px;
     border: 3px solid #000;
+  }
+  .box svg{
+    padding-right:.5em;
   }
   .ProductPage h3{
     padding: 0 1em;

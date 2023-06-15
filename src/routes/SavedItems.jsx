@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {NavLink} from "react-router-dom";
+import Delete from "../components/Delete";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SavedItems = () => {
   const [logged, setLogged] = useState(true);
   const [savedItems, setSavedItems] = useState([]);
+  const [deleteRequest, setDeleteRequest] = useState(false);
+  // Retrieve the authentication token from local storage
+  const authToken = localStorage.getItem('Token'); 
 
   useEffect(() => {
-    // Retrieve the authentication token from local storage
-    const authToken = localStorage.getItem('Token'); 
     if(!authToken){
       setLogged(false);
     }
@@ -29,11 +31,20 @@ const SavedItems = () => {
       });
   }, []);
 
+  // function Throw(){
+  //   setDeleteRequest(true);
+  // }
+  // let bin = <div></div>;
+  // if (deleteRequest){
+  //   bin = ;
+  // }
+
 
   let login = <div></div>;
   if(!logged){
     login = <h2><NavLink to="/login">Login</NavLink> to save items!</h2>;
   }
+
 
   let items = <div></div>;
   if(savedItems){
@@ -50,7 +61,8 @@ const SavedItems = () => {
                   </div>
                   
                   <div className='buttons'>
-                    <FontAwesomeIcon icon="fa-solid fa-trash-can" size="xl" />
+                    <Delete id={item.id} />
+                    
                   </div>
 
                 </div>
@@ -60,6 +72,8 @@ const SavedItems = () => {
   if(savedItems==''){
     items = <p className='noitem'>There is no item saved.</p>;
   }
+
+  
 
   
   return (
@@ -74,3 +88,4 @@ const SavedItems = () => {
 };
 
 export default SavedItems;
+
