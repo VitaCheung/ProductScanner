@@ -68,6 +68,7 @@ const LoginForm = () => {
   
   return (
     <form action="/home" onSubmit={handleSubmit} >
+        <h2>Login</h2>
         <div className="email">
             <label htmlFor="email">Email Address:</label>
             <input type="text" value={email} onChange={handleEmailChange} placeholder="Email" />  

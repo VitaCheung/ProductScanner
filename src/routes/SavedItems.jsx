@@ -55,7 +55,7 @@ const SavedItems = () => {
                     <img src={item.img} height="80" />
                       <div className='details'>
                         <h3>{item.name}</h3>
-                        <p>Brand: {item.brand}</p>
+                        <p>Asin: {item.asin}</p>
                         <p>Ref: {item.UPC}</p>
                       </div>
                   </div>

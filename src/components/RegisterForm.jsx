@@ -7,6 +7,7 @@ const RegisterForm = () => {
   const [password, setPassword] = useState('');
   const [password_confirmation, setPasswordConfirm] = useState('');
   const [msg, setMsg] = useState('');
+  const [data, setData] = useState('');
 
 
   const handleFirstChange = (event) => {
@@ -40,26 +41,35 @@ const RegisterForm = () => {
       .then((data) => {
         // Handle the API response (e.g., store the token, update state, etc.)
         setMsg(data.message);
+        setData(data);
         console.log(data);
         console.log(msg);
+        
       })
       .catch((error) => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
-      window.location="/login";
+      
+      // window.location="/login";
   };
-
+  let ErrorMsg = <div></div>;
   let message =<div></div>;
   if(msg){
     message= <h3>{msg}! <a href="/login">Login Now</a></h3>;
+    document.getElementById("Reg_form").style.display = "none";
+  } 
+  if(data && !msg){
+    const errorObject = JSON.parse(data);
+    const errorArray = Object.values(errorObject);
+    ErrorMsg = errorArray.map((error) => error[0]).join(' ');
   }
 
   return (
     <div id="Register"> 
       <h2>Register</h2>
-      {message}
-    <form action="/home" onSubmit={handleSubmit} >
+      <p className='red'>{message}</p>
+    <form id="Reg_form" action="/home" onSubmit={handleSubmit} >
         <div className="first">
             <label htmlFor="first">First Name:</label>
             <input type="text" value={first} onChange={handleFirstChange} placeholder="First Name" />  
@@ -80,7 +90,7 @@ const RegisterForm = () => {
             <label htmlFor="password_confirmation">Confirm Password:</label>
             <input type="password" value={password_confirmation} onChange={handlePasswordConfirm} placeholder="Confirm Password" />
         </div>
-      
+        <p className='red'>{ErrorMsg}</p>
       <button type="submit">Register</button>
     </form>
     </div>

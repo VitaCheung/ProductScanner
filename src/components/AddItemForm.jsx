@@ -3,23 +3,23 @@ import {useState, useEffect}  from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {NavLink} from "react-router-dom";
 
-const AddItemForm = ({ UPC, name, brand, img }) => {
+const AddItemForm = ({ UPC, name, asin, img }) => {
   const authToken = localStorage.getItem('Token'); 
   const userId = localStorage.getItem('UserId');
   // const [UPC, setUPC] = useState('');
   // const [name, setName] = useState('');
   // const [img, setImg] = useState('');
-  // const [brand, setBrand] = useState(asin);
+  // const [asin, setasin] = useState(asin);
   
   const [logged, setLogged] = useState(true);
   const [saved, setSaved] = useState(false);
   console.log('id:'+ userId);
   console.log('1UPC:'+ UPC);
   console.log('2name:'+ name);
-  console.log('3asin:'+ brand);
+  console.log('3asin:'+ asin);
   console.log('4img:'+ img);
   
-  console.log('brand:'+brand);
+  console.log('asin:'+asin);
 
 
     // var asin = "B07VF6VRMD";
@@ -35,7 +35,7 @@ const AddItemForm = ({ UPC, name, brand, img }) => {
         'Authorization': `Bearer ${authToken}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ UPC, name, brand, img }),
+      body: JSON.stringify({ UPC, name, asin, img }),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -95,7 +95,7 @@ export default AddItemForm;
   //   let response = await fetch(url, options);
   //   let data = await response.json();
   //   // console.log(data);
-  //   setBrand(data.brand);
+  //   setasin(data.asin);
 
   // }
   // if (asin){

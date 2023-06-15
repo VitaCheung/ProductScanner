@@ -109,7 +109,7 @@ export default function About() {
                     <div className='box'>
                         <h3>{title}</h3> 
                         
-                        <AddItemForm UPC={searchQuery} name={title} img={image} brand={asin}/>
+                        <AddItemForm UPC={searchQuery} name={title} img={image} asin={asin}/>
                     </div>
                     <p>Rating: <span className='red'>{rating}</span> /5 ({numOfRating})</p>
                     <p>Online Price: {amount !== null ? (
