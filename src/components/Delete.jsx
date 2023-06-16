@@ -8,9 +8,9 @@ const Delete = (id) => {
   const item_id = id.id;
  
   const DeleteItem = async () => {
-
+    console.log(2);
     // Make the HTTP request to Laravel API's login endpoint
-    fetch('http://127.0.0.1:8000/api/delete-item/'+item_id, {
+    fetch('https://productscanner.vitacheung.ca/api/delete-item/'+item_id, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -21,12 +21,13 @@ const Delete = (id) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        window.location.reload();
       })
       .catch((error) => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
-      window.location.reload();
+      
     }
 
   return (

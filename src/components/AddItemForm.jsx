@@ -29,7 +29,7 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
       setLogged(false);
     } else {
       // Make the HTTP request to Laravel API's login endpoint
-      fetch('http://127.0.0.1:8000/api/add-item', {
+      fetch('https://productscanner.vitacheung.ca/api/add-item', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${authToken}`,

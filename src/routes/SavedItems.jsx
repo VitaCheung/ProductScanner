@@ -14,7 +14,7 @@ const SavedItems = () => {
     if(!authToken){
       setLogged(false);
     }
-    fetch('http://127.0.0.1:8000/api/saved-items', {
+    fetch('https://productscanner.vitacheung.ca/api/saved-items', {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,

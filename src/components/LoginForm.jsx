@@ -27,7 +27,7 @@ const LoginForm = () => {
       setMissed(true);
     }
     // Make the HTTP request to Laravel API's login endpoint
-    fetch('http://127.0.0.1:8000/api/auth/login', {
+    fetch('https://productscanner.vitacheung.ca/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

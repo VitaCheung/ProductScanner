@@ -30,7 +30,7 @@ const RegisterForm = () => {
     event.preventDefault();
 
     // Make the HTTP request to Laravel API's Register endpoint
-    fetch('http://127.0.0.1:8000/api/auth/register', {
+    fetch('https://productscanner.vitacheung.ca/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +51,6 @@ const RegisterForm = () => {
         console.error('Error:', error);
       });
       
-      // window.location="/login";
   };
   let ErrorMsg = <div></div>;
   let message =<div></div>;
@@ -62,7 +61,7 @@ const RegisterForm = () => {
   if(data && !msg){
     const errorObject = JSON.parse(data);
     const errorArray = Object.values(errorObject);
-    ErrorMsg = errorArray.map((error) => error[0]).join(' ');
+    ErrorMsg = errorArray.map((error) => error[0]).join('');
   }
 
   return (
