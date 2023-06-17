@@ -3,14 +3,20 @@ import {useState, useEffect}  from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import Home from "../routes/Home";
 
-const Delete = (id) => {
+const Delete = ({id, asin} ) => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
   const authToken = localStorage.getItem('Token'); 
-  const item_id = id.id;
- 
-  const DeleteItem = async () => {
-    console.log(2);
+  console.log(id);
+  console.log(asin);
+  // const item_id = id.toString();
+  // console.log(item_id);
+  
+  const DeleteItem = () => {
+    const savedItems = JSON.parse(localStorage.getItem('savedItems')) || [];
+    console.log('removing');
+  
     // Make the HTTP request to Laravel API's login endpoint
-    fetch('https://productscanner.vitacheung.ca/api/delete-item/'+item_id, {
+    fetch(`${apiUrl}/api/delete-item/${id}`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -21,14 +27,19 @@ const Delete = (id) => {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
+        // console.log(asin);
+        // Remove item from local storage
+        const updatedItems = savedItems.filter((savedItem) => savedItem !== asin);
+        localStorage.setItem('savedItems', JSON.stringify(updatedItems));
         window.location.reload();
+        
       })
       .catch((error) => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
       
-    }
+    };
 
   return (
 

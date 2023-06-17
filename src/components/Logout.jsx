@@ -1,18 +1,17 @@
 // import React, { useState } from 'react';
 import {useState, useEffect}  from "react";
-import Home from "../routes/Home";
+// import Home from "../routes/Home";
+// import {dotenv} from 'dotenv';
 
 const Logout = () => {
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-  // const [token, setToken] = useState("");
-  const [logged, setLogged] = useState(true);
-
   
+  const [logged, setLogged] = useState(true);
+  const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
+
     // event.preventDefault();
 
     // Make the HTTP request to Laravel API's login endpoint
-    fetch('https://productscanner.vitacheung.ca/api/auth/logout', {
+    fetch(`${apiUrl}/api/auth/logout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,6 +32,7 @@ const Logout = () => {
       });
       localStorage.removeItem('Token');
       localStorage.removeItem('UserId');
+      localStorage.removeItem('savedItems');
       alert("Successfully logged out.");
       window.location="/";
 

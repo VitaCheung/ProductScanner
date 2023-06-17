@@ -2,6 +2,7 @@
 import {useState, useEffect}  from "react";
 
 const LoginForm = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState("");
@@ -27,7 +28,7 @@ const LoginForm = () => {
       setMissed(true);
     }
     // Make the HTTP request to Laravel API's login endpoint
-    fetch('https://productscanner.vitacheung.ca/api/auth/login', {
+    fetch(`${apiUrl}/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -4,6 +4,7 @@ import Delete from "../components/Delete";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SavedItems = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
   const [logged, setLogged] = useState(true);
   const [savedItems, setSavedItems] = useState([]);
   const [deleteRequest, setDeleteRequest] = useState(false);
@@ -14,7 +15,7 @@ const SavedItems = () => {
     if(!authToken){
       setLogged(false);
     }
-    fetch('https://productscanner.vitacheung.ca/api/saved-items', {
+    fetch(`${apiUrl}/api/saved-items`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${authToken}`,
@@ -31,20 +32,10 @@ const SavedItems = () => {
       });
   }, []);
 
-  // function Throw(){
-  //   setDeleteRequest(true);
-  // }
-  // let bin = <div></div>;
-  // if (deleteRequest){
-  //   bin = ;
-  // }
-
-
   let login = <div></div>;
   if(!logged){
     login = <h2><NavLink to="/login">Login</NavLink> to save items!</h2>;
   }
-
 
   let items = <div></div>;
   if(savedItems){
@@ -54,14 +45,14 @@ const SavedItems = () => {
                   <div className='left'>
                     <img src={item.img} height="80" />
                       <div className='details'>
-                        <h3>{item.name}</h3>
+                        <a href={`/about?s=${item.asin}`}><h3>{item.name}</h3></a>
                         <p>Asin: {item.asin}</p>
                         <p>Ref: {item.UPC}</p>
                       </div>
                   </div>
                   
                   <div className='buttons'>
-                    <Delete id={item.id} />
+                    <Delete id={item.id} asin={item.asin}/>
                     
                   </div>
 
@@ -72,8 +63,6 @@ const SavedItems = () => {
   if(savedItems==''){
     items = <p className='noitem'>There is no item saved.</p>;
   }
-
-  
 
   
   return (

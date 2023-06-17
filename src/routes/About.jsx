@@ -11,8 +11,10 @@ export default function About() {
     const { search } = window.location;
     const query = new URLSearchParams(search).get('s');
     const [searchQuery, setSearchQuery] = useState(query);
-    
     console.log(searchQuery);
+    const P_apiKey = import.meta.env.VITE_REACT_APP_P_API_KEY;
+    const P_apiHost = import.meta.env.VITE_REACT_APP_P_API_HOST;
+
     const [loading, setLoading] = useState();
     const [error, setError] = useState(null);
     const [title, setTitle] = useState("");
@@ -38,10 +40,11 @@ export default function About() {
             const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '993db5a0aamshe737b49dee5a1ddp18daf7jsnab8c338adc35',
-                'X-RapidAPI-Host': 'parazun-amazon-data.p.rapidapi.com'
+                'X-RapidAPI-Key': P_apiKey,
+                'X-RapidAPI-Host': P_apiHost
             }
             };
+
             // Perform API request to fetch data
             let response = await fetch(url, options);
             if (!response.ok) {
@@ -64,8 +67,8 @@ export default function About() {
             const options2 = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '993db5a0aamshe737b49dee5a1ddp18daf7jsnab8c338adc35',
-                'X-RapidAPI-Host': 'parazun-amazon-data.p.rapidapi.com'
+                'X-RapidAPI-Key': P_apiKey,
+                'X-RapidAPI-Host': P_apiHost
             }
             };
             console.log('3');
@@ -109,7 +112,7 @@ export default function About() {
                     <div className='box'>
                         <h3>{title}</h3> 
                         
-                        <AddItemForm UPC={searchQuery} name={title} img={image} asin={asin}/>
+                        <AddItemForm key={asin} UPC={searchQuery} name={title} img={image} asin={asin}/>
                     </div>
                     <p>Rating: <span className='red'>{rating}</span> /5 ({numOfRating})</p>
                     <p>Online Price: {amount !== null ? (

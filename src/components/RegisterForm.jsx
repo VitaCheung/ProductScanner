@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const RegisterForm = () => {
+  const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
   const [email, setEmail] = useState('');
@@ -30,7 +31,7 @@ const RegisterForm = () => {
     event.preventDefault();
 
     // Make the HTTP request to Laravel API's Register endpoint
-    fetch('https://productscanner.vitacheung.ca/api/auth/register', {
+    fetch(`${apiUrl}/api/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -1,10 +1,5 @@
 import {useState, useEffect}  from "react";
 import About from "../routes/About";
-// const Search = () => {
-//     return <div>Hello world!</div>
-// }
-
-// export default Search;
 
 const Search = ({ searchQuery, setSearchQuery }) => (
     <form id="search" name="SearchForm" action="/about" method="get">
