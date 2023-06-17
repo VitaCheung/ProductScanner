@@ -118,7 +118,24 @@ h2 {
 #login{
   margin:0 5em 0 5em;
   padding: 5em 2em;
+  animation-name: slideup;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-duration: .5s;
+  animation-direction: normal;
 }
+  @keyframes slideup
+  {
+    0%
+    {  
+        transform: translate(0,100%);
+    }
+    100%
+    {
+        transform: translate(0,15%);
+    }
+  }
+
 #login button{
   font-family: 'Jost', 'Quicksand', sans-serif;
   text-align: center;
