@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import {NavLink} from "react-router-dom";
 import Delete from "../components/Delete";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SavedItems = () => {
   const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
   const [logged, setLogged] = useState(true);
   const [savedItems, setSavedItems] = useState([]);
-  const [deleteRequest, setDeleteRequest] = useState(false);
+  // const [deleteRequest, setDeleteRequest] = useState(false);
   // Retrieve the authentication token from local storage
   const authToken = localStorage.getItem('Token'); 
 
@@ -50,12 +49,9 @@ const SavedItems = () => {
                         <p>Ref: {item.UPC}</p>
                       </div>
                   </div>
-                  
                   <div className='buttons'>
                     <Delete id={item.id} asin={item.asin}/>
-                    
                   </div>
-
                 </div>
               ))}
             </div>;
@@ -64,14 +60,12 @@ const SavedItems = () => {
     items = <p className='noitem'>There is no item saved.</p>;
   }
 
-  
   return (
     <main id="SavedItemsPage">
       <h1>Saved items</h1>
-      {login}
       {/* Render the saved items on the interface */}
+      {login}
       {items}
-      
     </main>
   );
 };

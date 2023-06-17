@@ -1,12 +1,11 @@
-// import React, { useState } from 'react';
 import {useState, useEffect}  from "react";
 
 const LoginForm = () => {
   const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [token, setToken] = useState("");
-  const [userId, setUserId] = useState("");
+  // const [token, setToken] = useState("");
+  // const [userId, setUserId] = useState("");
   const [missed, setMissed] = useState(false);
   const [unregistered, setUnregistered] = useState(false);
 
@@ -21,12 +20,10 @@ const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     //validate the input
-    if(email == null || email== ''){
+    if(email == null || email== '' || password == null || password== ''){
       setMissed(true);
-    }
-    if(password == null || password== ''){
-      setMissed(true);
-    }
+    } else {
+    
     // Make the HTTP request to Laravel API's login endpoint
     fetch(`${apiUrl}/api/auth/login`, {
       method: 'POST',
@@ -38,12 +35,9 @@ const LoginForm = () => {
       .then((response) => response.json())
       .then((data) => {
         // Handle the API response (e.g., store the token, update state, etc.)
-        setToken(data.access_token);
-        setUserId(data.user.id);
-        console.log(data.access_token);
-        // setLogged(true);
         console.log(data);
-       
+        localStorage.setItem('Token', data.access_token);
+        localStorage.setItem('UserId', data.user.id);
         window.location="/home";
         
       })
@@ -54,11 +48,11 @@ const LoginForm = () => {
         setUnregistered(true);
       });
   };
-  localStorage.setItem('Token', token);
-  localStorage.setItem('UserId', userId);
-//   console.log(2+ token);
+
+  };
+
   let ErrorMsg = <p></p>;
-  if (!missed && unregistered){
+  if (unregistered){
     ErrorMsg = <p className="red">*This account or the password is invalid.</p>;
   } else if (missed){
     ErrorMsg = <p className="red">*Email or Password is missing.</p>;}

@@ -1,14 +1,10 @@
 import React from 'react';
 import Quagga from 'quagga';
-import Search from "./search";
+// import Search from "./search";
 import {useState, useEffect}  from "react";
-// import { Form } from 'react-router-dom';
-// import { getSearch, getReview } from "../routes/About"
 
 const BarcodeScanner = ({ onBarcodeDetected }) => {
     const [detectedBarcode, setDetectedBarcode] = useState('');
-    
-
     const handleBarcodeDetection = (result) => {
         // Handle the detected barcode and send it to Search
         const barcode = result.codeResult.code;
@@ -16,17 +12,8 @@ const BarcodeScanner = ({ onBarcodeDetected }) => {
         onBarcodeDetected(barcode);
         
         console.log('Detected barcode: '+barcode);
-
     };
 
-    // const handleBarcodeSubmit = () => {
-
-    //     const formData = new FormData();
-    //     formData.append('barcode', detectedBarcode);
-
-    //     Search(formData);
-
-    // };
     
     useEffect(() => {
         Quagga.init({
@@ -63,7 +50,7 @@ const BarcodeScanner = ({ onBarcodeDetected }) => {
     
     return (
         <main id="Scan-main">
-        {/* Add the 'barcode-scanner' */}
+        {/* the 'barcode-scanner' */}
         <div id="barcode-scanner">
             <div className="sweeping-line"></div>
         </div>

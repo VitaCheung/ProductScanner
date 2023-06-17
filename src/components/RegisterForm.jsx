@@ -10,7 +10,6 @@ const RegisterForm = () => {
   const [msg, setMsg] = useState('');
   const [data, setData] = useState('');
 
-
   const handleFirstChange = (event) => {
     setFirst(event.target.value);
   };
@@ -40,35 +39,35 @@ const RegisterForm = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        // Handle the API response (e.g., store the token, update state, etc.)
+        // Handle the API response 
+        console.log(data);
         setMsg(data.message);
         setData(data);
-        console.log(data);
-        console.log(msg);
         
       })
       .catch((error) => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
+        
       });
       
   };
-  let ErrorMsg = <div></div>;
-  let message =<div></div>;
+  let ErrorMsg = <p></p>;
+  let message =<p></p>;
   if(msg){
-    message= <h3>{msg}! <a href="/login">Login Now</a></h3>;
+    message= <h3 className='red'>{msg}! <a href="/login">Login Now</a></h3>;
     document.getElementById("Reg_form").style.display = "none";
   } 
   if(data && !msg){
     const errorObject = JSON.parse(data);
     const errorArray = Object.values(errorObject);
-    ErrorMsg = errorArray.map((error) => error[0]).join('');
+    ErrorMsg = <p className='red'> {errorArray.map((error) => error[0]).join('')}</p>;
   }
 
   return (
     <div id="Register"> 
       <h2>Register</h2>
-      <p className='red'>{message}</p>
+      {message}
     <form id="Reg_form" action="/home" onSubmit={handleSubmit} >
         <div className="first">
             <label htmlFor="first">First Name:</label>
@@ -90,7 +89,7 @@ const RegisterForm = () => {
             <label htmlFor="password_confirmation">Confirm Password:</label>
             <input type="password" value={password_confirmation} onChange={handlePasswordConfirm} placeholder="Confirm Password" />
         </div>
-        <p className='red'>{ErrorMsg}</p>
+        {ErrorMsg}
       <button type="submit">Register</button>
     </form>
     </div>

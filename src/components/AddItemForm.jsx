@@ -1,4 +1,3 @@
-// import React, { useState } from 'react';
 import {useState, useEffect}  from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {NavLink} from "react-router-dom";
@@ -9,7 +8,6 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
   const user_id = localStorage.getItem('UserId');
   
   const [logged, setLogged] = useState(true);
-  // const [saved, setSaved] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   // Check local storage on initial render
@@ -19,13 +17,12 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
     setIsBookmarked(isItemSaved);
   }, [asin]);
   console.log(isBookmarked);
-  console.log('id:'+ user_id);
+  console.log('User:'+ user_id);
   console.log('1UPC:'+ UPC);
   console.log('2name:'+ name);
   console.log('3asin:'+ asin);
   console.log('4img:'+ img);
   
-
   // Save item to SavedItem table
   const handleSubmit = () => {
     // User has to login if they're not logged
@@ -46,10 +43,10 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
       .then((data) => {
         // Handle the API response 
         console.log(data);
-          // Save item to local storage
-          const updatedItems = [...savedItems, asin];
-          localStorage.setItem('savedItems', JSON.stringify(updatedItems));
-        // }
+        // Save item to local storage
+        const updatedItems = [...savedItems, asin];
+        localStorage.setItem('savedItems', JSON.stringify(updatedItems));
+        // Bookmark
         setIsBookmarked(true);
 
       })
@@ -57,7 +54,6 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
         // Handle any errors that occur during the request
         console.error('Error:', error);
       });
-      // setSaved(true);
 
     }
 
@@ -81,7 +77,7 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
           // Remove item from local storage
           const updatedItems = savedItems.filter((savedItem) => savedItem !== asin);
           localStorage.setItem('savedItems', JSON.stringify(updatedItems));
-          // window.location.reload();
+          // remove bookmark
           setIsBookmarked(false);
         })
         .catch((error) => {
@@ -107,8 +103,6 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
     <div>
       {savebtn}
       {login}
-   
-    
     </div>
     
   );
@@ -116,21 +110,4 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
 
 export default AddItemForm;
 
-// const getDetail = async () => {
 
-  //   const url = 'https://parazun-amazon-data.p.rapidapi.com/product/?asin='+asin+'&region=CA';
-  //   const options = {
-  //   method: 'GET',
-  //   headers: {
-  //       'X-RapidAPI-Key': '993db5a0aamshe737b49dee5a1ddp18daf7jsnab8c338adc35',
-  //       'X-RapidAPI-Host': 'parazun-amazon-data.p.rapidapi.com'
-  //   }
-  //   };
-  //   let response = await fetch(url, options);
-  //   let data = await response.json();
-  //   // console.log(data);
-  //   setasin(data.asin);
-
-  // }
-  // if (asin){
-  // getDetail();};

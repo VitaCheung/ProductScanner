@@ -1,5 +1,4 @@
-import {useState, useEffect}  from "react";
-import About from "../routes/About";
+// import {useState, useEffect}  from "react";
 
 const Search = ({ searchQuery, setSearchQuery }) => (
     <form id="search" name="SearchForm" action="/about" method="get">

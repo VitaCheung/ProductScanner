@@ -15,8 +15,7 @@ const FormComponent = ({ detectedBarcode }) => {
   
     return (
       <div id="searchbox">
-        <Search searchQuery={detectedBarcode} 
-           />
+        <Search searchQuery={detectedBarcode}  />
       </div>
     );
   };
