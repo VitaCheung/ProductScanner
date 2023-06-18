@@ -44,7 +44,7 @@ const SavedItems = () => {
                   <div className='left'>
                     <img src={item.img} height="80" />
                       <div className='details'>
-                        <a href={`/about?s=${item.asin}`}><h3>{item.name}</h3></a>
+                        <a href={`/about?s=${item.name}`}><h3>{item.name}</h3></a>
                         <p>Asin: {item.asin}</p>
                         <p>Ref: {item.UPC}</p>
                       </div>

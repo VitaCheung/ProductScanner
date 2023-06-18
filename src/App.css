@@ -16,6 +16,9 @@ body{
 ::selection {
   background:pink;
 }
+#site-name{
+  margin:0.5em;
+}
 h2 {
   text-align: center;
 }
@@ -24,7 +27,9 @@ h2 {
   width: 100%;
   display:grid;
   text-align: center;
-  background-color: rgb(244, 65, 113);
+  /* background-color: rgb(244, 65, 113); */
+  /* background: transparent linear-gradient(180deg, var(--unnamed-color-5c5cff) 0%, #2E2E80 100%) 0% 0% no-repeat padding-box; */
+  background: transparent linear-gradient(170deg, #5C5CFF 0%, rgb(244, 65, 113) 95%) 0% 0% no-repeat padding-box;
 }
 #main-nav{
   position: fixed;
@@ -51,7 +56,7 @@ h2 {
   margin:0;
   padding: 0;
 }
-#main-nav li{
+#main-nav a{
   display: flex;
   flex-direction: column;
   margin:0 1.5em;
@@ -63,19 +68,23 @@ h2 {
   min-height:max-content;
   padding:10em 3em;
 }
+
 #home-nav ul{
+  max-width: 100%;
+  display:flex;
+  flex-wrap: wrap;
   text-align: center;
   padding: 1em 5em;
-  margin: 0;
+  margin: 0 5em;
   list-style-type: none;
 }
 #home-nav li, #logout_btn li{
-  width:100%;
   text-align: center;
-  margin-bottom: 1em;
-  padding: 1em;
-  background-color: rgb(244, 65, 113);
-  box-shadow: inset 0 0 20px 10px rgba(255, 255, 255, 0.11);
+  margin: .5em;
+  padding: 1.5em 1em;
+  /* background-color: rgb(244, 65, 113); */
+  background: transparent linear-gradient(170deg, #5C5CFF -10%, rgb(244, 65, 113) 80%) 0% 0% no-repeat padding-box;
+  /* box-shadow: inset 0 0 20px 10px rgba(255, 255, 255, 0.11); */
   box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.103);
   border-radius: 20px;
 }
@@ -83,9 +92,11 @@ h2 {
   background-color: rgb(131, 93, 227);
 }
 #home-nav li:hover{
+  background: transparent linear-gradient(170deg, #5C5CFF -10%, rgb(244, 65, 113) 0%) 0% 0% no-repeat padding-box;
   background-color:rgb(246, 89, 131);
 }
 #home-nav a, #logout_btn{
+  flex:50%;
   font-size: 1.5em;
   color:white;
   text-decoration:none;
@@ -377,7 +388,13 @@ color:rgb(244, 65, 113);
     padding: 5em 2em;
   }
   #home-nav ul{
+    margin: 0;
     padding: 1em 1.5em;
+  }
+  #home-nav li, #logout_btn li{
+    text-align: center;
+    margin: .5em;
+    padding: 1em;
   }
   #login{
     margin:0 3em 0 3em;

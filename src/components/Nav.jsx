@@ -7,20 +7,16 @@ export default function Nav() {
     <nav id="main-nav" aria-label="Main navigation">
       <ul>
         <li>
-          <NavLink to="/"><FontAwesomeIcon icon="fa-solid fa-house" size="xl" /></NavLink>          
-          <NavLink to="/"> Home</NavLink>
+          <NavLink to="/"><FontAwesomeIcon icon="fa-solid fa-house" size="xl" />Home</NavLink>          
         </li>
         <li>
-        <NavLink to="/scanner"><FontAwesomeIcon icon="fa-solid fa-barcode" size="xl" /></NavLink>
-          <NavLink to="/scanner"> Scan</NavLink>
+        <NavLink to="/scanner"><FontAwesomeIcon icon="fa-solid fa-barcode" size="xl" />Scan</NavLink>
         </li>
         <li>
-        <NavLink to="/about"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" size="xl" /></NavLink>         
-          <NavLink to="/about"> Search</NavLink>
+        <NavLink to="/about"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" size="xl" />Search</NavLink>         
         </li>
         <li>
-        <NavLink to="/saveditems"><FontAwesomeIcon icon="fa-solid fa-bookmark" size="xl" /></NavLink>         
-          <NavLink to="/saveditems"> Bookmark</NavLink>
+        <NavLink to="/saveditems"><FontAwesomeIcon icon="fa-solid fa-bookmark" size="xl" />Bookmark</NavLink>         
         </li>
       </ul>
     </nav>
