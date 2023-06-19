@@ -28,7 +28,7 @@ export default function Home() {
     <main id="main">
       <div id="home">
         {welcome}
-        <h2>Search a product to see its reviews!</h2>
+        <h2>Search for a product to see the reviews!</h2>
         <nav id="home-nav" aria-label="Main navigation">
           <ul>
             <NavLink to="/scanner"><li><FontAwesomeIcon icon="fa-solid fa-barcode" size="xl" />  Barcode Scan</li></NavLink>
