@@ -10,7 +10,7 @@ const Search = ({ searchQuery, setSearchQuery }) => (
             onInput={e => setSearchQuery(e.target.value)}
             type="text"
             id="header-search"
-            placeholder="Search products"
+            placeholder="The product"
             name="s" 
         />
         <button type="submit" >Search</button>

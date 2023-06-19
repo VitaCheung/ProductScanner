@@ -5,7 +5,6 @@ import LoadingState from "../components/LoadingState";
 import AddItemForm from "../components/AddItemForm";
 import {useState, useEffect}  from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import Reviews from "../components/Reviews";
 
 export default function About() {
     const { search } = window.location;
@@ -23,7 +22,6 @@ export default function About() {
     const [amount, setAmount] = useState(null);
     const [rating, setRating] = useState("");
     const [numOfRating, setnumOfRating] = useState("");
-    // const [msg, setMsg] = useState("");
     const [reviews, setReviews] = useState([]);
     // const [reviewsImg, setReviewsImg] = useState("",[]);
 
@@ -108,7 +106,7 @@ export default function About() {
     let product = <div></div>;
     if (searchQuery && title) {
         product = <div className="product"> 
-                    <div className="padding"><img src={image}/></div>
+                    <div className="padding"><img src={image} alt={`image of ${title}`}/></div>
                     <div className='box'>
                         <h3>{title}</h3> 
                         
@@ -144,12 +142,12 @@ export default function About() {
                     {reviews.map((review) => (
                     <div className="review" key={review.review_date}>
                         <div className="profile">
-                            <img src={review.profile_image} />
+                            <img src={review.profile_image} alt="profile of the reviewer"/>
                             <p>{review.profile_name}</p> <p className="date">{formatDate(review.review_date)}</p>
                         </div>
                         <div className="content">
                             <p>{review.review_text}</p>
-                            <img src={review.images} />
+                            <img src={review.images} alt="photo from the review"/>
                             
                         </div>                             
                     </div>

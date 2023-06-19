@@ -42,7 +42,7 @@ const SavedItems = () => {
               {savedItems.map((item) => (
                 <div key={item.id} className='items'>
                   <div className='left'>
-                    <img src={item.img} height="80" />
+                    <img src={item.img} height="80" alt={item.name}/>
                       <div className='details'>
                         <a href={`/about?s=${item.name}`}><h3>{item.name}</h3></a>
                         <p>Asin: {item.asin}</p>

@@ -331,7 +331,7 @@ color:rgb(244, 65, 113);
 #main, #home, #scannerPage, #SavedItemsPage{
   max-width: 100%;
   min-height: 900px;
-  padding-bottom: 1em;
+  /* padding-bottom: 1em; */
 }
 .items{
   display:flex;
@@ -385,7 +385,7 @@ color:rgb(244, 65, 113);
     min-height: 660px;
   }
   #home{
-    padding: 5em 2em;
+    padding: 3em 2em;
   }
   #home-nav ul{
     margin: 0;
