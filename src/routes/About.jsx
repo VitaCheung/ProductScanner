@@ -1,4 +1,4 @@
-// import BarcodeSearch from "../components/BarcodeSearch";
+import SimilarProducts from "../components/SimilarProducts";
 import React from 'react';
 import Search from "../components/search";
 import LoadingState from "../components/LoadingState";
@@ -23,7 +23,7 @@ export default function About() {
     const [rating, setRating] = useState("");
     const [numOfRating, setnumOfRating] = useState("");
     const [reviews, setReviews] = useState([]);
-    // const [reviewsImg, setReviewsImg] = useState("",[]);
+    const [showSimilar, setShowSimilar] = useState(false);
 
     console.log("hello, I'm product's view");
     // var searchQuery = '087300700052' '062600963208';
@@ -60,7 +60,6 @@ export default function About() {
             setnumOfRating(data.results[0].reviews.num_ratings);
 
             console.log("2");
-            // getReview();
             const url2 = `https://parazun-amazon-data.p.rapidapi.com/product/reviews/?asin=${data.results[0].asin}&region=CA&page=1&filter_by_keyword=highly%20recommended`;
             const options2 = {
             method: 'GET',
@@ -71,9 +70,6 @@ export default function About() {
             };
             console.log('3');
             let response2 = await fetch(url2, options2);
-            // if (!response2.ok) {
-            //     throw new Error('Review request failed');
-            // }
             let data2 = await response2.json();
             console.log(data2);
             setReviews(data2.reviews);
@@ -95,7 +91,15 @@ export default function About() {
     console.log('amount:'+ amount)
     
 
-    // let state1 =<div></div>;
+    let Similar =<div></div>;
+    function getSimilar(){
+        console.log('hellooooo');
+        setShowSimilar(true);
+    }
+    if (showSimilar){
+        Similar =<div><SimilarProducts asin={asin} /></div>;
+    }
+
     if (loading) {
         return <LoadingState />; 
     }
@@ -118,7 +122,9 @@ export default function About() {
                                     ) : (
                                         <span className='null'>NUll</span>
                                     )}</p>
-                    <p>ASIN: {asin}</p>   
+                    <p>ASIN: {asin}</p>
+                    {/* <button type="submit" id="sim_btn" onClick={getSimilar}>Similar products</button>
+                    {Similar}  */}
                   </div>;           
     } else if(title && !asin){
         product = <div className="product">There is not much detail of the product.</div>
@@ -147,8 +153,13 @@ export default function About() {
                         </div>
                         <div className="content">
                             <p>{review.review_text}</p>
-                            <img src={review.images} alt="photo from the review"/>
-                            
+                            {review.images !== null ? (
+                                review.images.map((imageUrl, index) => (
+                                    <img key={index} src={imageUrl} alt={`photo ${index + 1} from the review`} />
+                                ))
+                                ) : (
+                                <div></div>
+                                )}     
                         </div>                             
                     </div>
                     ))} 

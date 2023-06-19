@@ -284,6 +284,9 @@ h1{
 .content{
   margin:0;
 }
+.content img{
+  margin-right: .5em;
+}
 #SavedItemsPage{
   background-color: rgba(0, 0, 0, 0.8);
   min-height: 660px;
