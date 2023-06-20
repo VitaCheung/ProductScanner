@@ -18,7 +18,7 @@ const AddItemForm = ({ UPC, name, asin, img }) => {
   }, [asin]);
   console.log(isBookmarked);
   console.log('User:'+ user_id);
-  console.log('1UPC:'+ UPC);
+  console.log('1Ref:'+ UPC);
   console.log('2name:'+ name);
   console.log('3asin:'+ asin);
   console.log('4img:'+ img);

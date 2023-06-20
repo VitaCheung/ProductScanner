@@ -85,7 +85,6 @@ export default function About() {
         if (searchQuery){ 
         getSearch();
         }
-        // var asin = "B07VF6VRMD";
 
     },[]);
     console.log('amount:'+ amount)
@@ -123,8 +122,8 @@ export default function About() {
                                         <span className='null'>NUll</span>
                                     )}</p>
                     <p>ASIN: {asin}</p>
-                    {/* <button type="submit" id="sim_btn" onClick={getSimilar}>Similar products</button>
-                    {Similar}  */}
+                    <button type="submit" id="sim_btn" onClick={getSimilar}>Similar products</button>
+                    {Similar} 
                   </div>;           
     } else if(title && !asin){
         product = <div className="product">There is not much detail of the product.</div>

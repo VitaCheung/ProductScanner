@@ -115,8 +115,7 @@ h2 {
 #logout_btn li{
   background-color: rgb(131, 93, 227);
 }
-#home-nav li:hover{
-  background: transparent linear-gradient(170deg, #5C5CFF -10%, rgb(244, 65, 113) 0%) 0% 0% no-repeat padding-box;
+#home-nav li:hover, #login button:hover, #sim_btn:hover{
   background-color:rgb(246, 89, 131);
 }
 #home-nav a, #logout_btn{
@@ -169,7 +168,8 @@ h2 {
     }
   }
 
-#login button{
+#login button, #sim_btn{
+  font-size: 1em;
   font-family: 'Jost', 'Quicksand', sans-serif;
   text-align: center;
   width:50%;
@@ -248,7 +248,7 @@ h1{
 .red a{
   color:rgb(244, 65, 113);
 }
-.red a:hover{
+.red a:hover, .SimilarItem a:hover, .details a:hover{
   color:rgb(255, 105, 145);
 }
 .box{
@@ -269,6 +269,9 @@ h1{
   background-color: white;
   border-radius: 20px;
   padding: 1em;
+}
+.padding img{
+  padding:0;
 }
 .ReviewsPage{
   width: 100%;
@@ -307,6 +310,30 @@ h1{
 .content img{
   margin-right: .5em;
 }
+#littleloading{
+  width:4em;
+  height:4em;
+  text-align: center;
+  margin-left:45%;
+}
+.SimilarItems{
+  text-align: center;
+  display: flex;
+  margin:3em 8em;
+}
+.SimilarItem{
+  padding:.5em;
+  margin:.5em;
+  background-color: white;
+  border-radius: 15px;
+}
+.SimilarItem img{
+  padding:0;
+}
+.SimilarItem a{
+  color:#242424;
+  text-decoration: none;
+}
 #SavedItemsPage{
   background-color: rgba(0, 0, 0, 0.8);
   min-height: 660px;
@@ -319,9 +346,6 @@ h1{
 .details a{
   color:#000;
   text-decoration: none;
-}
-.details a:hover{
-  color:rgb(244, 65, 113);
 }
 .noitem{
   color:white;
@@ -444,11 +468,23 @@ color:rgb(244, 65, 113);
   }
   .ProductPage img{
     height: 200px;
-    /* padding: 1em 1em; */
   }
   .padding{
     margin:0 3em;
     padding: 1em;
+  }
+  #littleloading{
+    text-align: center;
+    margin-left:40%;
+  }
+  .SimilarItems{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin:2em 2em;
+  }
+  .SimilarItem, .SimilarItem img{
+    max-width: 100%;
   }
   .review, .items{
     margin: 1em 1em;
