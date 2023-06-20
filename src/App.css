@@ -22,13 +22,39 @@ body{
 h2 {
   text-align: center;
 }
+#home::before{
+  content: "";
+}
+#main Header{
+  
+  position: absolute;
+  height:100%;
+  padding: 50em 0;
+  align-items: center;
+  animation-name: slide;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-direction: normal;
+}
+  @keyframes slide
+    {
+      0%
+      {   top: -30%;
+          transform: translate(0,0%);
+      }
+      100%
+      {   top: 0;
+          height:0;
+          padding: 0;
+          transform: translate(0,-50%);
+      }
+    }
 #header{
   margin: 0;
   width: 100%;
   display:grid;
   text-align: center;
-  /* background-color: rgb(244, 65, 113); */
-  /* background: transparent linear-gradient(180deg, var(--unnamed-color-5c5cff) 0%, #2E2E80 100%) 0% 0% no-repeat padding-box; */
   background: transparent linear-gradient(170deg, #5C5CFF 0%, rgb(244, 65, 113) 95%) 0% 0% no-repeat padding-box;
 }
 #main-nav{
@@ -38,7 +64,6 @@ h2 {
   width: 100%;
   background-color: #242424;
   text-align: center;
-  /* background-color: rgb(46, 46, 46); */
   padding: 0.5em 1em;
 }
 #main-nav a, #header a{
@@ -84,7 +109,6 @@ h2 {
   padding: 1.5em 1em;
   /* background-color: rgb(244, 65, 113); */
   background: transparent linear-gradient(170deg, #5C5CFF -10%, rgb(244, 65, 113) 80%) 0% 0% no-repeat padding-box;
-  /* box-shadow: inset 0 0 20px 10px rgba(255, 255, 255, 0.11); */
   box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.103);
   border-radius: 20px;
 }
@@ -106,7 +130,6 @@ h2 {
   border: none;
   margin:0;
   padding:0;
-  /* border-radius: 20px; */
   width:100%;
   font-family: 'Jost', 'Quicksand', sans-serif;
 }
@@ -121,7 +144,6 @@ h2 {
 }
 #scannerPage, #login{
   text-align: center;
-  /* min-height: max-content; */
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 3em 2em;
@@ -164,7 +186,6 @@ h2 {
   max-width:100%;
   text-align: center;
   position: relative;
-  /* width: 300px; */
   margin:4em 15em;
   height: 200px;
   border: 3px solid #000;
@@ -202,7 +223,6 @@ h1{
 #main{
   margin:0;
   background: linear-gradient(rgb(255, 255, 255), rgba(218, 218, 218, 0.75)), url("/shelf.jpg") center center;
-  /* height: max-content; */
 }
 .ProductPage{
   text-align: center;
@@ -334,7 +354,6 @@ color:rgb(244, 65, 113);
 #main, #home, #scannerPage, #SavedItemsPage{
   max-width: 100%;
   min-height: 900px;
-  /* padding-bottom: 1em; */
 }
 .items{
   display:flex;

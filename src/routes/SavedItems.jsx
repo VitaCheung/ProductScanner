@@ -6,7 +6,6 @@ const SavedItems = () => {
   const apiUrl = import.meta.env.VITE_REACT_APP_D_API_URL;
   const [logged, setLogged] = useState(true);
   const [savedItems, setSavedItems] = useState([]);
-  // const [deleteRequest, setDeleteRequest] = useState(false);
   // Retrieve the authentication token from local storage
   const authToken = localStorage.getItem('Token'); 
 

@@ -1,4 +1,5 @@
 import {NavLink} from "react-router-dom";
+import Header from "../components/Header";
 import Logout from "../components/Logout";
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,6 +27,7 @@ export default function Home() {
 
   return(
     <main id="main">
+      <Header id="Head"/>
       <div id="home">
         {welcome}
         <h2>Search for a product to see the reviews!</h2>
