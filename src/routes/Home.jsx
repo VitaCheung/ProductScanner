@@ -35,7 +35,7 @@ export default function Home() {
           <ul>
             <NavLink to="/scanner"><li><FontAwesomeIcon icon="fa-solid fa-barcode" size="xl" />  Barcode Scan</li></NavLink>
             <NavLink to="/about"><li><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" size="xl" />  Search</li></NavLink>
-            <NavLink to="/saveditems"><li><FontAwesomeIcon icon="fa-solid fa-bookmark" size="xl" />  Bookmark</li></NavLink>
+            <NavLink to="/saveditems"><li><FontAwesomeIcon icon="fa-solid fa-bookmark" size="xl" />  Bookmarks</li></NavLink>
             {logbtn}
             {logging}
           </ul>

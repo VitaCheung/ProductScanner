@@ -16,7 +16,7 @@ export default function Nav() {
         <NavLink to="/about"><FontAwesomeIcon icon="fa-solid fa-magnifying-glass" size="xl" />Search</NavLink>         
         </li>
         <li>
-        <NavLink to="/saveditems"><FontAwesomeIcon icon="fa-solid fa-bookmark" size="xl" />Bookmark</NavLink>         
+        <NavLink to="/saveditems"><FontAwesomeIcon icon="fa-solid fa-bookmark" size="xl" />Bookmarks</NavLink>         
         </li>
       </ul>
     </nav>
