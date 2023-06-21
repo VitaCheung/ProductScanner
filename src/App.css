@@ -116,7 +116,7 @@ h2 {
   background-color: rgb(131, 93, 227);
 }
 #home-nav li:hover, #login button:hover, #sim_btn:hover{
-  background-color:rgb(246, 89, 131);
+  background: transparent linear-gradient(170deg, #5C5CFF -10%, rgb(244, 78, 116) 0%) 0% 0% no-repeat padding-box;
 }
 #home-nav a, #logout_btn{
   flex:50%;
