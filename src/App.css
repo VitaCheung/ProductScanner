@@ -272,6 +272,7 @@ h1{
 }
 .padding img{
   padding:0;
+  max-width: 100%;
 }
 .ReviewsPage{
   width: 100%;
