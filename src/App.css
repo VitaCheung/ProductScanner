@@ -322,12 +322,14 @@ h1{
   margin:3em 8em;
 }
 .SimilarItem{
+  max-width: 35%;
   padding:.5em;
   margin:.5em;
   background-color: white;
   border-radius: 15px;
 }
 .SimilarItem img{
+  max-width: 100%;
   padding:0;
 }
 .SimilarItem a{
@@ -413,7 +415,6 @@ color:rgb(244, 65, 113);
 @media screen and (max-width:768px) {
   #main, #home, #scannerPage{
     max-width: 100%;
-    min-height: 800px;
   }
   #barcode-scanner{
     margin:4em 8em;

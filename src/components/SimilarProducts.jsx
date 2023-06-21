@@ -3,8 +3,7 @@ import {useState, useEffect}  from "react";
 export default function SimilarProducts({asin}) {
     const P_apiKey = import.meta.env.VITE_REACT_APP_P_API_KEY;
     const P_apiHost = import.meta.env.VITE_REACT_APP_P_API_HOST;
-    const [products, setProducts] = useState([]);
-    const [SimilarItems, setSimilarItems] = useState([]);
+    const [SimilarItems, setSimilarItems] = useState(null||[]);
     const [loading, setLoading] = useState();
 
     useEffect(()=> {
@@ -21,9 +20,17 @@ export default function SimilarProducts({asin}) {
             let response = await fetch(url, options);
             let data = await response.json();
             console.log(data);
-            setProducts(data.sponsored[0].asins);
-            console.log(products);
-            const productString =  data.sponsored[0].asins.slice(0, 3).join(',');
+
+            var productString = "";
+            if(data.sponsored[0].asins){
+                productString =  data.sponsored[0].asins.slice(0, 3).join(',');
+            } else if(!data.sponsored[0].asins){
+                productString =  data.related[0].asins.slice(0, 3).join(',');
+            } else if(!data.sponsored[0].asins && !data.related[0].asins){
+                productString = data.bought_together[0].asin;
+            } else {
+                productString ="";
+            }
             console.log(productString);
             const url2 = `https://parazun-amazon-data.p.rapidapi.com/product/summaries/?asins=${productString}&region=CA&page=1`;
             const options2 = {
@@ -54,7 +61,7 @@ export default function SimilarProducts({asin}) {
             {loadImg}
             {SimilarItems !== null ? (
                                 SimilarItems.map((item) => (
-                                    <div className="SimilarItem">
+                                    <div className="SimilarItem" key={item.asin}>
                                         <a href={`/about?s=${item.asin}`}>
                                             <img src={item.image} alt={`image of ${item.title}`}/>
                                             <h4>{item.title}</h4>

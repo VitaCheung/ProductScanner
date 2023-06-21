@@ -77,7 +77,7 @@ export default function About() {
             setLoading(false);
         } catch (error) {
             console.log('Error fetching data:', error);
-            setError(error + ' Please try again.');
+            setError(error + ' Please try again or Search.');
             setLoading(false);
         }
             
